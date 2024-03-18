@@ -1,0 +1,61 @@
+{
+  "Meta": {
+    "title": "Sunmith Officail"
+  },
+  "Index": {
+    "": "Home",
+    "description": "This is the home page."
+  },
+  "Category": {
+    "title": "Suitable for Business"
+  },
+  "OurProducts": {
+    "title": "Our Products",
+    "description": "SUNMI's innovative products meet global standards. We offer a variety of models to cater to every need, whether it's for small shops or restaurants, up to large-scale businesses"
+  },
+  "OurServices": {
+    "title": "Our Services",
+    "description": "SUNMI TH provides post-sales service with dedicated staff available 24 hours a day to assist store owners. We offer information, guidance on device usage, and comprehensive management support. Our service includes service centers, on-the-go repairs, and remote assistance, allowing immediate access to the device's interface as if our staff were present, enabling quick problem-solving."
+  },
+  "Services": {
+    "mainTitle": "Services",
+    "mainDescription": "SUNMI's innovative products meet global standards. We offer a variety of models to cater to every need, whether it's for small shops or restaurants, up to large-scale businesses.",
+    "buttonTxt": "Let's start.",
+    "items": [
+      {
+        "icon": "/icons/features/trophy.svg",
+        "title": "Sales",
+        "des": "Ready to serve! Distribute products from <b>SUNMI</b> of every model."
+      },
+      {
+        "icon": "/icons/features/check.svg",
+        "title": "Warranty",
+        "des": "Our team of experts is ready to take care of your business."
+      },
+      {
+        "icon": "/icons/features/shipping.svg",
+        "title": "Maintenance Service",
+        "des": "Start your business smoothly with <b>SUNMI OS SYSTEM</b>."
+      },
+      {
+        "icon": "/icons/features/customer-support.svg",
+        "title": "After-Sales Service",
+        "des": "Contact us for problem-solving 24 hours a day."
+      }
+    ]
+  },
+  "footer": {
+    "title1": "Subject",
+    "title2": "Services",
+    "title3": "Follow us"
+  },
+  "brances": [
+    {
+      "name": "SUNMI TH Office",
+      "address": "10/5 Kanchanaphisek Rd, Khwaeng Prawet, Prawet, Bangkok 10250",
+      "phone": "063 986 4820",
+      "mail": "contact@sunmith.com ",
+      "office_image": "/images/brances/1.jpeg"
+    }
+  ]
+}

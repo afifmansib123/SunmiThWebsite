@@ -1,0 +1,49 @@
+{
+  "en": [
+    {
+      "icon": "/icons/features/trophy.svg",
+      "title": "Sales",
+      "des": "<p  className=\"text-xs sm:text-xl font-sans font-medium text-skin-neutral-600 text-center\">Ready to serve! Distribute products from <b>SUNMI</b> of every model</p>"
+    },
+    {
+      "icon": "/icons/features/check.svg",
+      "title": "Warranty",
+      "des": "<p  className=\"text-xs sm:text-xl font-sans font-medium text-skin-neutral-600 text-center\">Our team of experts is ready to take care of your business</p>"
+    },
+
+    {
+      "icon": "/icons/features/shipping.svg",
+      "title": "Maintenance Service",
+      "des": "<p  className=\"text-xs sm:text-xl font-sans font-medium text-skin-neutral-600 text-center\">Start your business smoothly with <b>SUNMI OS SYSTEM</b>.</p>"
+    },
+
+    {
+      "icon": "/icons/features/customer-support.svg",
+
+      "title": "After-Sales Service",
+      "des": "<p  className=\"text-xs sm:text-xl font-sans font-medium text-skin-neutral-600 text-center\">Contact us for problem-solving 24 hours a day.</p>"
+    }
+  ],
+  "th": [
+    {
+      "icon": "/icons/features/trophy.svg",
+      "title": "จำหน่าย",
+      "des": "<p className=\"text-xs sm:text-xl font-sans font-medium text-skin-neutral-600 text-center\">พร้อมบริการ! จำหน่าย สินค้าของ <br className=\" hidden sm:block\" /> <b>SUNMI</b> ทุกรุ่นทุกแบบ</p>"
+    },
+    {
+      "icon": "/icons/features/check.svg",
+      "title": " รับประกัน",
+      "des": "<p className=\"text-xs sm:text-xl font-sans font-medium text-skin-neutral-600 text-center\">ทีมงานผู้เชี่ยวชาญของเรา <br className=\" hidden sm:block\" /> ที่พร้อมจะดูแลให้ธุรกิจของท่าน</p>"
+    },
+    {
+      "icon": "/icons/features/shipping.svg",
+      "title": "บริการซ่อมบำรุง",
+      "des": "<p className=\"text-xs sm:text-xl font-sans font-medium text-skin-neutral-600 text-center\">เริ่มต้นธุรกิจอย่างไม่ติดขัด <br className=\" hidden sm:block\" /> ด้วย <b>SUNMI OS SYSTEM</b></p>"
+    },
+    {
+      "icon": "/icons/features/customer-support.svg",
+      "title": "บริการหลังการขาย",
+      "des": "<p className=\"text-xs sm:text-xl font-sans font-medium text-skin-neutral-600 text-center\">บริการติดต่อสอบถาม <br className=\" hidden sm:block\" /> ปัญหาตลอด <b>24</b> ชั่วโมง</p>"
+    }
+  ]
+}
