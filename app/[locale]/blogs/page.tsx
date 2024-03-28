@@ -30,7 +30,7 @@ const Blogs = async () => {
                 mainImage={item.mainImage}
                 title={item.title}
                 publishedAt={item.publishedAt}
-                category={item.category.title}
+                category={item?.category?.title}
                 currentSlug={item.currentSlug}
                 description={item.description}
               />
