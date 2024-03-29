@@ -11,7 +11,7 @@ interface IProducts {
   reviews?: {
     total: number;
   };
-  price: number;
+  price?: number;
   discount?: number;
 }
 const ProductCard: FC<IProducts> = ({
@@ -59,13 +59,13 @@ const ProductCard: FC<IProducts> = ({
             <FaStar className=" w-3 h-3 text-primary" />
             <FaStar className=" w-3 h-3 text-primary" />
           </div>
-          <div>
+          {/* <div>
             <p className=" text-[10px] text-skin-neutral-300 font-nato_sans font-normal">
               ขายแล้ว 100 ชิ้น
             </p>
-          </div>
+          </div> */}
         </div>
-        <div className="  inline-flex items-center ">
+        {/* <div className="  inline-flex items-center ">
           <svg
             width="15"
             height="24"
@@ -109,8 +109,8 @@ const ProductCard: FC<IProducts> = ({
             variant={"destructive"}
           >
             ส่วนลด -30%
-          </Button>
-        </div>
+          </Button> */}
+        {/* </div> */}
       </div>
     </div>
   );
