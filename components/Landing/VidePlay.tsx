@@ -29,7 +29,7 @@ const VidePlay = () => {
         loop
         muted
         controls
-        src="https://stream.mux.com/6fiGM5ChLz8T66ZZiuzk1KZuIKX8zJz00/medium.mp4"
+        src="/Sunmi-Customers.mp4"
         ref={videoEl}
       />
     </div>
