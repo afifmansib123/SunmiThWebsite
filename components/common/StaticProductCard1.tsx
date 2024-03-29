@@ -1,4 +1,7 @@
+"use client"; // Add the "use client" directive at the top of the file
+
 import Image from "next/image";
+import { useRouter } from "next/navigation"; // Update import statement
 import { FaArrowRight } from "react-icons/fa6";
 
 const StaticProductCard1 = ({
@@ -16,6 +19,15 @@ const StaticProductCard1 = ({
   slug?: string;
   prductImage: string;
 }) => {
+  const router = useRouter();
+
+  const handleLearnMoreClick = () => {
+    if (router) {
+      const formattedProductName = productName.toLowerCase().replace(/\s+/g, '-');
+      router.push(`/products/${encodeURIComponent(formattedProductName)}`, undefined);
+    }
+  };
+
   return (
     <div
       style={{
@@ -49,6 +61,7 @@ const StaticProductCard1 = ({
           <div className="flex justify-end">
             <button
               aria-label="learn-more-product"
+              onClick={handleLearnMoreClick}
               className=" transition-all duration-300 hover:gap-3 text-white hover:bg-primary inline-flex py-1.5 rounded-full px-3 items-center gap-2 border-2 border-white text-sm font-normal  font-roboto"
             >
               Learn more <FaArrowRight className=" w-[17px] h-[15px]" />
