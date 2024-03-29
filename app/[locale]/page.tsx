@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import B2B from "@/components/Landing/B2B";
 import Categorys from "@/components/Landing/Category";
 import Hero from "@/components/Landing/Hero";
@@ -28,6 +29,9 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
+      <Head>
+        <link rel="icon" href={'/favicon.ico'} />
+      </Head>
       <MainHeader path={"/"} />
       <Hero />
       <Categorys />
