@@ -41,7 +41,7 @@ const Footer = () => {
               </li>
               <li>
                 <p className="text-base font-sans font-normal text-skin-neutral-600">
-                  อีเมล : care@sunmith.com
+                  อีเมล : contact@sunmith.com
                 </p>
               </li>
             </ul>
