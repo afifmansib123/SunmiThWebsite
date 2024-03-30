@@ -131,7 +131,8 @@ const Footer = () => {
               <li>
                 <Link
                   className="hover:underline transition-colors duration-500 hover:text-primary text-base xl:text-lg font-medium font-sans text-skin-neutral-600"
-                  href={"/"}
+                  href={"/legalDocuments/SunmiTH-Legal-Documents.pdf"}
+                  target="_blank"
                 >
                   Term&Condition
                 </Link>
