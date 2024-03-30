@@ -123,9 +123,9 @@ const Footer = () => {
               <li>
                 <Link
                   className="hover:underline transition-colors duration-500 hover:text-primary text-base xl:text-lg font-medium font-sans text-skin-neutral-600"
-                  href={"/"}
+                  href={"https://lin.ee/zH1PVJL"}
                 >
-                  Contact Support
+                  Contact Support 
                 </Link>
               </li>
               <li>
