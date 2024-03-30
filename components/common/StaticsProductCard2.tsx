@@ -1,3 +1,5 @@
+"use client"; // Add the "use client" directive at the top of the file
+
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
@@ -19,6 +21,22 @@ const StaticsProductCard2: FC<Props> = ({
   title,
   className,
 }) => {
+  const handleLearnMoreClick = () => {
+    switch (title) {
+      case "Remote Assistance":
+        window.location.href = "https://www.sunmi.com/en-US/partner/";
+        break;
+      case "SUNMI TH Home":
+        window.location.href = "https://sunmi-th-website.vercel.app/en/contact_us";
+        break;
+      case "SUNMI TH Care +":
+        window.location.href = "https://lin.ee/zH1PVJL";
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <div className=" relative overflow-hidden min-h-[226px] w-full rounded-[8px]">
       <div className=" z-10 left-0 right-0 absolute w-full h-[226px]">
@@ -40,11 +58,12 @@ const StaticsProductCard2: FC<Props> = ({
             {description}
           </p>
         )}
-        <Link href={slug || "/"}>
-          <span className=" transition-all duration-300 hover:gap-3 text-white hover:bg-primary inline-flex py-2 rounded-full px-3 items-center gap-2 border-2 border-white text-sm font-normal  font-roboto">
-            Learn more <FaArrowRight className=" w-[17px] h-[15px]" />
-          </span>
-        </Link>
+        <button
+          onClick={handleLearnMoreClick}
+          className="transition-all duration-300 hover:gap-3 text-white hover:bg-primary inline-flex py-2 rounded-full px-3 items-center gap-2 border-2 border-white text-sm font-normal  font-roboto cursor-pointer"
+        >
+          Learn more <FaArrowRight className=" w-[17px] h-[15px]" />
+        </button>
       </div>
     </div>
   );
