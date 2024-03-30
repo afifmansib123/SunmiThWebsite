@@ -36,7 +36,7 @@ const StaticProductCard1 = ({
       className=" bg-cover bg-center w-full p-6 bg-no-repeat rounded-[8px]"
     >
       <div className=" flex justify-end">
-        <h3 className="text-base lg:text-lg  font-sans font-normal text-white">
+        <h3 className="text-base lg:text-  font-sans font-normal text-white">
           {title}
         </h3>
       </div>

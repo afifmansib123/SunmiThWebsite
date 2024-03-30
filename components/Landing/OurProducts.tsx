@@ -25,7 +25,7 @@ const OurProducts = () => {
       >
         <div className=" py-7 lg:py-14 container flex flex-col gap-10 xl:flex-row w-full h-full  xl:items-center justify-between">
           <div className="  p-4 xl:p-10 bg-white/40 rounded-[20px]">
-            <div className=" px- lg:px-5 grid lg:grid-cols-2 gap-6">
+            <div className=" px- lg:px- grid lg:grid-cols-2 gap-6">
               <StaticProductCard1
                 prductImage="/images/products/1.svg"
                 title="Boost your business abilities."

@@ -38,35 +38,38 @@ const StaticsProductCard2: FC<Props> = ({
   };
 
   return (
-    <div className=" relative overflow-hidden min-h-[226px] w-full rounded-[8px]">
-      <div className=" z-10 left-0 right-0 absolute w-full h-[226px]">
+    <div className="relative overflow-hidden min-h-[226px] w-full rounded-[8px] flex flex-col">
+      <div className="z-10 left-0 right-0 absolute w-full h-[226px]">
         <Image
           sizes="450"
           src={image}
           fill
-          className=" w-full h-full"
+          className="w-full h-full"
           alt={title}
           quality={80}
         />
       </div>
-      <div className={cn(className, "relative z-20 p-6")}>
-        <h2 className="  text-xl text-white font-bold lg:text-2xl font-roboto">
-          {title}
-        </h2>
-        {description && (
-          <p className=" text-sm lg:text-base font-sans font-normal text-white">
-            {description}
-          </p>
-        )}
+      <div className={cn(className, "relative z-20 p-6 flex-grow flex flex-col justify-between")}>
+        <div>
+          <h2 className="text-xl text-white font-bold lg:text-2xl font-roboto">
+            {title}
+          </h2>
+          {description && (
+            <p className="text-sm lg:text-base font-sans font-normal text-white mt-4">
+              {description}
+            </p>
+          )}
+        </div>
         <button
           onClick={handleLearnMoreClick}
-          className="transition-all duration-300 hover:gap-3 text-white hover:bg-primary inline-flex py-2 rounded-full px-3 items-center gap-2 border-2 border-white text-sm font-normal  font-roboto cursor-pointer"
+          className="transition-all duration-300 hover:gap-3 text-white hover:bg-primary inline-flex py-2 rounded-full px-3 items-center gap-2 border-2 border-white text-sm font-normal font-roboto cursor-pointer"
         >
-          Learn more <FaArrowRight className=" w-[17px] h-[15px]" />
+          Learn more <FaArrowRight className="w-[17px] h-[15px]" />
         </button>
       </div>
     </div>
   );
+  
 };
 
 export default StaticsProductCard2;
