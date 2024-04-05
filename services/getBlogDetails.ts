@@ -1,6 +1,7 @@
 import { client } from "@/sanity/lib/client";
 
 export default async function getBlogDetails(slug: string) {
+  console.log(slug)
   const query = `
   *[_type == "post" && slug.current == '${slug}'] {
         

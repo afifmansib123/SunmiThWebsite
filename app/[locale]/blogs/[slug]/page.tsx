@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BlogDetails({ params }: Props) {
   const data: PostType = await getBlogDetails(params.slug);
-  console.log(data.currentSlug);
+  console.log(data, params);
   return (
     <div className="  min-h-screen bg-white">
       <div className="  container xl:max-w-[900px] ">
