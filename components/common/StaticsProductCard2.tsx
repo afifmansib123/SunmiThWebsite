@@ -40,14 +40,15 @@ const StaticsProductCard2: FC<Props> = ({
   return (
     <div className="relative overflow-hidden min-h-[226px] w-full rounded-[8px] flex flex-col">
       <div className="z-10 left-0 right-0 absolute w-full h-[226px]">
-        <Image
-          sizes="450"
-          src={image}
-          fill
-          className="w-full h-full"
-          alt={title}
-          quality={80}
-        />
+      <Image
+      sizes="450"
+      src={image}
+      layout="fill"
+      objectFit="cover"
+      alt={title}
+      quality={80}
+      className="blur-effect" // Add a class for the blur effect
+    />
       </div>
       <div className={cn(className, "relative z-20 p-6 flex-grow flex flex-col justify-between")}>
         <div>

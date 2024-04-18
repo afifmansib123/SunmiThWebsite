@@ -44,7 +44,7 @@ const OurProducts = () => {
             <div className="  mt-6  grid grid-cols-12 gap-6">
               <div className=" col-span-12 xl:col-span-5">
                 <StaticsProductCard2
-                  image="/images/Remote Assistance.png"
+                  image="/images/remote assistance 1.jpg"
                   title="Remote Assistance"
                   description=" Troubleshoot, with no geographic restrictions."
                   className=" flex  items-center col-span-12 xl:col-span-5 flex-col gap-5"

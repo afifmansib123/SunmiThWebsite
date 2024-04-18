@@ -2,7 +2,7 @@ import { client } from "@/sanity/lib/client";
 
 export default async function getAllBlogs() {
   const query = `
-  *[_type == 'post'] | order(_createdAt desc) {
+  *[_type == 'post'] | order(publishedAt desc) {
       title,
         "currentSlug": slug.current,
         mainImage,

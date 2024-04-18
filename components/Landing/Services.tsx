@@ -4,6 +4,9 @@ import Image from "next/image";
 import { IoChevronForward } from "react-icons/io5";
 import { Button } from "../ui/button";
 import VidePlay from "./VidePlay";
+import Link from "next/link"; // Import Link from Next.js
+
+
 const Services = () => {
   const t = useTranslations("Services");
   const local = useLocale(); // local return th and en value
@@ -20,10 +23,12 @@ const Services = () => {
               {t("mainDescription")}
             </p>
             <Button
-              aria-label={t("buttonTxt")} // Add an ARIA label for the button
-              className=" h-[60px] px-10 mx-auto block rounded-full font-sans font-bold text-xl lg:text-2xl"
+              aria-label={t("buttonTxt")}
+              className="h-[60px] px-10 mx-auto block rounded-full font-sans font-bold text-xl lg:text-2xl"
             >
-              {t("buttonTxt")}
+              <Link href="/products"> {/* Use Link component with href set to "/products" */}
+                <a>{t("buttonTxt")}</a> {/* Wrap the button text in an anchor tag */}
+              </Link>
             </Button>
           </div>
         </div>

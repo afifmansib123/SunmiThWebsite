@@ -41,16 +41,16 @@ const MainHeader = ({ path }: { path: any }) => {
       href: "/",
     },
     {
-      label: "Blogs",
-      href: "/blogs",
-    },
-    {
       label: "Products ",
       href: "/products",
     },
     {
       label: "Shop",
       href: "/shop",
+    },    
+    {
+      label: "Blogs",
+      href: "/blogs",
     },
     {
       label: "About us",
