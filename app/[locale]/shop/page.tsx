@@ -4,7 +4,7 @@ import { urlForImage } from "@/sanity/lib/image";
 import getAllShop from "@/services/getAllShop";
 import Image from "next/image";
 import Link from "next/link";
-
+//update the shop pages
 export interface Iproduct {
   _id: string;
   productTitle: string;
