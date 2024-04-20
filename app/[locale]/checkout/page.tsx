@@ -80,6 +80,8 @@ const Checkout = () => {
       setCart(cart);
       setSubtotal(newSubtotal);
       setTotal(newTotal);
+      console.log('total is',newTotal);
+
     }
   }, [cartContext]);
 

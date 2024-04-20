@@ -1,5 +1,7 @@
 "use client";
 
+import React, { useState } from 'react';
+
 import { Button } from "@/components/ui/button";
 import {
   Table,
@@ -29,7 +31,50 @@ const CheckoutDetails: FC<CheckoutDetailsProps> = ({
   total,
   shippingCost,
   subtotal,
-}) => {
+}) => 
+
+
+{
+
+
+  const [loading, setLoading] = useState(false);
+
+  const handlePayment = async () => {
+    setLoading(true);
+
+    try {
+      const url = 'https://payment.miqly.dev/2c2p/sunmith';
+      const headers = {
+        'Content-Type': 'application/json'
+      };
+      const body = JSON.stringify({
+        invoiceNo: 'INV123',
+        description: 'Payment for goods',
+        amount: subtotal + shippingCost,
+      });
+
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: headers,
+        body: body
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to make payment request');
+      }
+
+      const responseData = await response.json();
+
+      console.log(responseData.data.webPaymentUrl);
+      window.location.href = responseData.data.webPaymentUrl;
+    } catch (error) {
+      console.error('Payment error');
+      // Handle error appropriately, e.g., show error message to user
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className=" basis-full border-2 p-4 border-slate-200 xl:basis-[45%]">
       <div>
@@ -87,7 +132,7 @@ const CheckoutDetails: FC<CheckoutDetailsProps> = ({
         </div>
       </div>
       <div className="flex justify-center">
-        <Button className=" flex w-full" type="submit">
+        <Button className=" flex w-full" type="submit" onClick={handlePayment}>
           Place Order
         </Button>
       </div>
