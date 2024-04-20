@@ -41,7 +41,7 @@ const MainHeader = ({ path }: { path: any }) => {
       href: "/",
     },
     {
-      label: "Products ",
+      label: "Products",
       href: "/products",
     },
     {

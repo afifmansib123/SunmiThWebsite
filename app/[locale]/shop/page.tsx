@@ -4,7 +4,7 @@ import { urlForImage } from "@/sanity/lib/image";
 import getAllShop from "@/services/getAllShop";
 import Image from "next/image";
 import Link from "next/link";
-
+//update the shop pages
 export interface Iproduct {
   _id: string;
   productTitle: string;
@@ -68,13 +68,18 @@ const Shop = async () => {
                     ${product.price}
                   </h3>
                 </Link>
-                <CartButton
-                  name={product.productTitle}
-                  price={product.price}
-                  feturesImage={urlForImage(product.mainImage.asset)}
-                  slug={product.currentSlug}
-                  title=""
-                />
+                {product.currentSlug === "d3-mini" ||
+                product.currentSlug === "v3-mix" ? (
+                  <p className="text-red-500 font-bold mt-7">Out of Stock</p>
+                ) : (
+                  <CartButton
+                    name={product.productTitle}
+                    price={product.price}
+                    feturesImage={urlForImage(product.mainImage.asset)}
+                    slug={product.currentSlug}
+                    title=""
+                  />
+                )}
               </div>
             </div>
           ))}
