@@ -65,7 +65,7 @@ const Shop = async () => {
                     }}
                     className="font-semibold text-sm xl:text-base mb-3"
                   >
-                    ${product.price}
+                    ฿{product.price}
                   </h3>
                 </Link>
                 {product.currentSlug === "d3-mini" ||

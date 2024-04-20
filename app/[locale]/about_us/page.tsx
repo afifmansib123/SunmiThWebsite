@@ -1,6 +1,6 @@
 import MainHeader from "@/components/layout/Header";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import bg_about from "@/public/p9-2-en.jpg";
+import bg_about from "@/public/aboutus.png";
 import { useLocale } from "next-intl";
 import Image from "next/image";
 
@@ -23,7 +23,7 @@ const AboutUs = () => {
             </AspectRatio>
           </div>
         </div>
-        <div className="space-y-6">
+        <div className="space-y-40">
           <div>
             <h2 className="text-2xl lg:text-5xl font-roboto font-bold">
               Core Value{" "}
