@@ -80,7 +80,7 @@ const Checkout = () => {
       setCart(cart);
       setSubtotal(newSubtotal);
       setTotal(newTotal);
-      console.log('total is',newTotal);
+      console.log('total is', newTotal);
 
     }
   }, [cartContext]);
@@ -88,7 +88,31 @@ const Checkout = () => {
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    console.log(values);
+    const formData = {
+      firstName: values.firstName,
+      lastName: values.lastName,
+      streetAddress: values.streetAddress,
+      town_city: values.town_city,
+      state_county: values.state_county,
+      postcode: values.postcode,
+      phone: values.phone,
+      email: values.email,
+      ship_address: values.ship_address,
+      ship_firstName: values.ship_firstName,
+      ship_lastName: values.ship_lastName,
+      ship_streetAddress: values.ship_streetAddress,
+      ship_town_city: values.ship_town_city,
+      ship_state_county: values.ship_state_county,
+      ship_postcode: values.ship_postcode,
+      ship_company_name: values.ship_company_name,
+      other_notes: values.other_notes,
+      company_name: values.company_name,
+      totalPrice: total, // Assuming `total` is available in scope
+      products: cart, // Assuming `cart` is available in scope
+    };
+
+    // Now you can send `formData` as JSON in your API request
+    console.log(JSON.stringify(formData));
   }
   return (
     <div>
@@ -505,6 +529,7 @@ const Checkout = () => {
                   total={total}
                   shippingCost={shippingCost}
                   subtotal={subtotal}
+                  formData={form.getValues()}
                 />
               </div>
             </form>

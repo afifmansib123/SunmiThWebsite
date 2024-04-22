@@ -20,6 +20,7 @@ interface CheckoutDetailsProps {
   total: number;
   shippingCost: number;
   subtotal: number;
+  formData: any; 
 }
 
 interface CartItem {
@@ -31,6 +32,7 @@ const CheckoutDetails: FC<CheckoutDetailsProps> = ({
   total,
   shippingCost,
   subtotal,
+  formData,
 }) => 
 
 
@@ -42,6 +44,7 @@ const CheckoutDetails: FC<CheckoutDetailsProps> = ({
   const handlePayment = async () => {
     setLoading(true);
 
+
     try {
       const url = 'https://payment.miqly.dev/2c2p/sunmith';
       const headers = {
@@ -51,6 +54,7 @@ const CheckoutDetails: FC<CheckoutDetailsProps> = ({
         invoiceNo: 'INV123',
         description: 'Payment for goods',
         amount: subtotal + shippingCost,
+        formData: formData,
       });
 
       const response = await fetch(url, {
