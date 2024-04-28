@@ -31,7 +31,12 @@ const Footer = () => {
               </li>
               <li>
                 <p className="text-base font-sans font-normal text-skin-neutral-600">
-                  สำนักงาน : 02-5217155-59 ต่อ 804 หรือ 808
+                  ติดต่อฝ่ายขาย : 02-114-7173 ต่อ 1
+                </p>
+              </li>
+              <li>
+                <p className="text-base font-sans font-normal text-skin-neutral-600">
+                  สำนักงานใหญ่ : 02-114-7173 ต่อ 4
                 </p>
               </li>
               <li>
@@ -167,7 +172,7 @@ const Footer = () => {
                   href={"https://www.facebook.com/SUNMITHBKK"}
                   target="_blank"
                 >
-                  sunmithai
+                  SUNMI TH
                 </Link>
               </li>
               <li className=" inline-flex items-center gap-2">
@@ -183,7 +188,7 @@ const Footer = () => {
                   href={"https://page.line.me/888vwsck?openQrModal=true"}
                   target="_blank"
                 >
-                  @sunmicare
+                  @sunmith
                 </Link>
               </li>
               <li className=" inline-flex items-center gap-2">
@@ -203,7 +208,13 @@ const Footer = () => {
                 </Link>
               </li>
               <li className=" inline-flex items-center gap-2">
-                <FaLinkedin size={24} />
+                <Image
+                  src={"/icons/linkedin.svg"}
+                  alt="linkedin"
+                  width={24}
+                  className=" w-auto h-auto"
+                  height={24}
+                />                
                 <Link
                   className=" hover:underline transition-colors duration-500 hover:text-primary text-base xl:text-lg font-medium font-sans text-skin-neutral-600"
                   href={"https://www.linkedin.com/company/sunmith/"}
@@ -213,7 +224,13 @@ const Footer = () => {
                 </Link>
               </li>
               <li className=" inline-flex items-center gap-2">
-                <FaYoutube size={24} />
+                <Image
+                  src={"/icons/youtube.svg"}
+                  alt="youtube"
+                  width={24}
+                  className=" w-auto h-auto"
+                  height={24}
+                />  
                 <Link
                   className=" hover:underline transition-colors duration-500 hover:text-primary text-base xl:text-lg font-medium font-sans text-skin-neutral-600"
                   href={
