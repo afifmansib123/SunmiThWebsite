@@ -24,6 +24,10 @@ export default function CartsItems() {
 
   const { cart, deleteItemFromCart } = cartContext;
 
+  const subtotal = cart.reduce((total, item) => {
+    return total + (item.price);
+  }, 0);
+  
   const getCartLengthGroup = (length: number): string => {
     if (length < 10) {
       // Pad the number with leading zero if it's less than 10
@@ -73,7 +77,7 @@ export default function CartsItems() {
                                 {product.name}
                               </Link>
                             </h3>
-                            <p className="ml-4">{product.price}$</p>
+                            <p className="ml-4">{product.price}฿</p>
                           </div>
                         </div>
                         <div className="flex flex-1 items-end justify-between text-sm">
@@ -98,7 +102,7 @@ export default function CartsItems() {
               <div className="border-t mt-10 border-gray-200 px-4 py-6 sm:px-6">
                 <div className="flex justify-between text-base font-medium text-gray-900">
                   <p>Subtotal</p>
-                  <p>$262.00</p>
+                  <p>{subtotal}฿</p>
                 </div>
                 <p className="mt-0.5 text-sm text-gray-500">
                   Shipping and taxes calculated at checkout.

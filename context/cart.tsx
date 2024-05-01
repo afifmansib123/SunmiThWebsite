@@ -69,7 +69,10 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
       quantity,
       slug,
     };
-
+    
+    if (!cart) {
+      setCart([]);
+    }
     const isItemExist = cart.find((i) => i.slug === item.slug);
 
     let newCartItems;
