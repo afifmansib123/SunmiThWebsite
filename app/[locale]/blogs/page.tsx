@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 };
 const Blogs = async () => {
   const data: IBlogCardType[] = await getAllBlogs();
-  console.log(data)
+  console.log("g" , data)
   return (
     <section className="min-h-screen bg-white">
       <div className=" bg-slate-200 py-10 xl:py-24">
