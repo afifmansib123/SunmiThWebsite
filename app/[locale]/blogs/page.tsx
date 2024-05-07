@@ -3,6 +3,8 @@ import getAllBlogs from "@/services/getAllBlogs";
 import { IBlogCardType } from "@/types";
 import { Metadata } from "next";
 
+export const revalidate = 30; // revalidate at most 30 seconds
+
 export const metadata: Metadata = {
   title: "Sunmi Official Blogs",
   description:
