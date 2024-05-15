@@ -2,7 +2,7 @@ import getAllBlogs from "@/services/getAllBlogs";
 import { PostType } from "@/types";
 
 export default async function sitemap() {
-  const baseUrl = "https://sunmith-official.vercel.app/";
+  const baseUrl = "https://sunmith.com/en";
 
   const posts: PostType[] = await getAllBlogs();
   const postUrls = posts.map((post) => ({

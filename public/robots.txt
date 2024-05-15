@@ -1,0 +1,13 @@
+# *
+User-agent: *
+Disallow: /secret
+
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://sunmith.com/en
+
+# Sitemaps
+Sitemap: https://sunmith.com/en/sitemap.xml
