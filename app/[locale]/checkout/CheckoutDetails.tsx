@@ -46,7 +46,7 @@ const CheckoutDetails: FC<CheckoutDetailsProps> = ({
 
 
     try {
-      const url = 'https://payment.miqly.dev/2c2p/sunmith';
+      const url = 'https://payment.miqly.dev/2c2p/sunmith/get-payment-url';
       const headers = {
         'Content-Type': 'application/json'
       };
