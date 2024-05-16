@@ -30,8 +30,9 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import CheckoutDetails from "./CheckoutDetails";
 const formSchema = z.object({
-  firstName: z.string().min(2).max(50).optional(),
-  lastName: z.string().min(2).max(50).optional(),
+  //firstName: z.string().min(2).max(50).optional(),
+  //lastName: z.string().min(2).max(50).optional(),
+  fullname : z.string().min(2).max(50).optional(),
   streetAddress: z.string().min(2).max(50).optional(),
   town_city: z.string().optional(),
   state_county: z.string().optional(),
@@ -89,8 +90,7 @@ const Checkout = () => {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     const formData = {
-      firstName: values.firstName,
-      lastName: values.lastName,
+      fullname : values.fullname,
       streetAddress: values.streetAddress,
       town_city: values.town_city,
       state_county: values.state_county,
@@ -175,34 +175,21 @@ const Checkout = () => {
                   <p className="text-base font-bold pb-2 border-b border-slate-950">
                     Billing details
                   </p>
-                  <div className=" grid sm:grid-cols-2 gap-5">
+                  
                     <FormField
                       control={form.control}
-                      name="firstName"
+                      name="fullname"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>First name (optional)</FormLabel>
+                          <FormLabel>Full Name</FormLabel>
                           <FormControl>
-                            <Input placeholder="First name" {...field} />
+                            <Input placeholder="Full Name" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
                       )}
                     />
-                    <FormField
-                      control={form.control}
-                      name="lastName"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Last name (optional)</FormLabel>
-                          <FormControl>
-                            <Input placeholder="Last name" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
+                  
                   <FormField
                     control={form.control}
                     name="company_name"
@@ -210,44 +197,14 @@ const Checkout = () => {
                       <FormItem>
                         <FormLabel>Company name (optional)</FormLabel>
                         <FormControl>
-                          <Input placeholder="Street Add" {...field} />
+                          <Input placeholder="Add Company" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
                   <div>
-                    <FormField
-                      control={form.control}
-                      name="streetAddress"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Country / Region (optional)</FormLabel>
-                          <p className=" text-sm font-bold">Thailand</p>
-                          <FormControl>
-                            <Input
-                              placeholder="House number and street name"
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="streetAddress"
-                      render={({ field }) => (
-                        <FormItem className=" mt-4">
-                          <FormControl>
-                            <Input
-                              placeholder="Apartment, suite, unit, etc. (optional)"
-                              {...field}
-                            />
-                          </FormControl>
-                        </FormItem>
-                      )}
-                    />
+                  <p className=" text-sm font-bold">Thailand Adress</p>
                   </div>
                   <FormField
                     control={form.control}
@@ -298,6 +255,38 @@ const Checkout = () => {
                       </FormItem>
                     )}
                   />
+                                      <FormField
+                      control={form.control}
+                      name="streetAddress"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>
+                          
+                          </FormLabel>
+                          <FormControl>
+                            <Input
+                              placeholder="House number and street name"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="streetAddress"
+                      render={({ field }) => (
+                        <FormItem className=" mt-4">
+                          <FormControl>
+                            <Input
+                              placeholder="Apartment, suite, unit, etc. (optional)"
+                              {...field}
+                            />
+                          </FormControl>
+                        </FormItem>
+                      )}
+                    />
                   <FormField
                     control={form.control}
                     name="postcode"
