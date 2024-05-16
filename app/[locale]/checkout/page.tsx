@@ -2,6 +2,8 @@
 
 import { Checkbox } from "@/components/ui/checkbox";
 import { RiErrorWarningFill } from "react-icons/ri";
+import {amphures} from "./amphures.js"
+import {provinces} from "./provinces.js"
 
 import {
   Form,
@@ -34,17 +36,17 @@ const formSchema = z.object({
   //lastName: z.string().min(2).max(50).optional(),
   fullname : z.string().min(2).max(50).optional(),
   streetAddress: z.string().min(2).max(50).optional(),
-  town_city: z.string().optional(),
-  state_county: z.string().optional(),
+  amphures: z.string().min(2).max(50).optional(),
+  province: z.string().min(2).max(50).optional(),
+  tambons: z.string().min(2).max(50).optional(),
   postcode: z.string().min(2).max(50).optional(),
   phone: z.string(),
   email: z.string().email(),
   ship_address: z.boolean().default(false).optional(),
-  ship_firstName: z.string().min(2).max(50).optional(),
-  ship_lastName: z.string().min(2).max(50).optional(),
+  ship_name: z.string().min(2).max(50).optional(),
   ship_streetAddress: z.string().min(2).max(50).optional(),
-  ship_town_city: z.string().min(2).max(50).optional(),
-  ship_state_county: z.string().min(2).max(50).optional(),
+  ship_amphures: z.string().min(2).max(50).optional(),
+  ship_province: z.string().min(2).max(50).optional(),
   ship_postcode: z.string().min(2).max(50).optional(),
   ship_company_name: z.string().min(2).max(50).optional(),
   other_notes: z.string().min(2).max(50).optional(),
@@ -92,17 +94,17 @@ const Checkout = () => {
     const formData = {
       fullname : values.fullname,
       streetAddress: values.streetAddress,
-      town_city: values.town_city,
-      state_county: values.state_county,
+      amphures: values.amphures,
+      province: values.province,
+      tambons: values.tambons,
       postcode: values.postcode,
       phone: values.phone,
       email: values.email,
       ship_address: values.ship_address,
-      ship_firstName: values.ship_firstName,
-      ship_lastName: values.ship_lastName,
+      ship_name: values.ship_name,
       ship_streetAddress: values.ship_streetAddress,
-      ship_town_city: values.ship_town_city,
-      ship_state_county: values.ship_state_county,
+      ship_amphures: values.ship_amphures,
+      ship_province: values.ship_province,
       ship_postcode: values.ship_postcode,
       ship_company_name: values.ship_company_name,
       other_notes: values.other_notes,
@@ -208,46 +210,49 @@ const Checkout = () => {
                   </div>
                   <FormField
                     control={form.control}
-                    name="town_city"
+                    name="amphures"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Town / City (optional)</FormLabel>
-                        <FormControl>
-                          <Input
-                            placeholder="Town / City (optional)
-"
-                            {...field}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="town_city"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>State / County (optional)</FormLabel>
+                        <FormLabel>Amphures</FormLabel>
                         <Select
                           onValueChange={field.onChange}
                           defaultValue={field.value}
                         >
                           <FormControl>
                             <SelectTrigger>
-                              <SelectValue placeholder="Select a country" />
+                              <SelectValue placeholder="Select an Amphure" />
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
-                            <SelectItem value="m@example.com">
-                              m@example.com
-                            </SelectItem>
-                            <SelectItem value="m@google.com">
-                              m@google.com
-                            </SelectItem>
-                            <SelectItem value="m@support.com">
-                              m@support.com
-                            </SelectItem>
+                            {amphures && amphures.map((x)=>(<SelectItem value={x.name_th}>
+                              {x.name_th}/{x.name_en}
+                            </SelectItem>))}
+                          </SelectContent>
+                        </Select>
+
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                                    <FormField
+                    control={form.control}
+                    name="province"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Province</FormLabel>
+                        <Select
+                          onValueChange={field.onChange}
+                          defaultValue={field.value}
+                        >
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Select a Province" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            {provinces && provinces.map((x)=>(<SelectItem value={x.name_th}>
+                              {x.name_th}/{x.name_en}
+                            </SelectItem>))}
                           </SelectContent>
                         </Select>
 
@@ -355,34 +360,19 @@ const Checkout = () => {
                   {/* show   Ship to a different address? */}
                   {form.watch("ship_address") && (
                     <>
-                      <div className=" grid sm:grid-cols-2 gap-5">
                         <FormField
                           control={form.control}
-                          name="ship_firstName"
+                          name="ship_name"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel>First name (optional)</FormLabel>
+                              <FormLabel>Full Name</FormLabel>
                               <FormControl>
-                                <Input placeholder="shadcn" {...field} />
+                                <Input placeholder="Full Name" {...field} />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
                           )}
                         />
-                        <FormField
-                          control={form.control}
-                          name="ship_lastName"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel>Last name (optional)</FormLabel>
-                              <FormControl>
-                                <Input placeholder="shadcn" {...field} />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                      </div>
                       <FormField
                         control={form.control}
                         name="ship_company_name"
@@ -397,13 +387,67 @@ const Checkout = () => {
                         )}
                       />
                       <div>
-                        <FormField
+                      <p className=" text-sm font-bold">Thailand Adress</p>
+                       
+                      </div>
+                      <FormField
+                    control={form.control}
+                    name="ship_amphures"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Amphures</FormLabel>
+                        <Select
+                          onValueChange={field.onChange}
+                          defaultValue={field.value}
+                        >
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Select an Amphure" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            {amphures && amphures.map((x)=>(<SelectItem value={x.name_th}>
+                              {x.name_th}/{x.name_en}
+                            </SelectItem>))}
+                          </SelectContent>
+                        </Select>
+
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                                    <FormField
+                    control={form.control}
+                    name="ship_province"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Province</FormLabel>
+                        <Select
+                          onValueChange={field.onChange}
+                          defaultValue={field.value}
+                        >
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Select a Province" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            {provinces && provinces.map((x)=>(<SelectItem value={x.name_th}>
+                              {x.name_th}/{x.name_en}
+                            </SelectItem>))}
+                          </SelectContent>
+                        </Select>
+
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                   <FormField
                           control={form.control}
                           name="ship_streetAddress"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel>Country / Region (optional)</FormLabel>
-                              <p className=" text-sm font-bold">Thailand</p>
+                              
                               <FormControl>
                                 <Input
                                   placeholder="House number and street name"
@@ -428,56 +472,6 @@ const Checkout = () => {
                             </FormItem>
                           )}
                         />
-                      </div>
-                      <FormField
-                        control={form.control}
-                        name="ship_town_city"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Town / City (optional)</FormLabel>
-                            <FormControl>
-                              <Input
-                                placeholder="Town / City (optional)
-"
-                                {...field}
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      <FormField
-                        control={form.control}
-                        name="ship_town_city"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>State / County (optional)</FormLabel>
-                            <Select
-                              onValueChange={field.onChange}
-                              defaultValue={field.value}
-                            >
-                              <FormControl>
-                                <SelectTrigger>
-                                  <SelectValue placeholder="Select a country" />
-                                </SelectTrigger>
-                              </FormControl>
-                              <SelectContent>
-                                <SelectItem value="m@example.com">
-                                  m@example.com
-                                </SelectItem>
-                                <SelectItem value="m@google.com">
-                                  m@google.com
-                                </SelectItem>
-                                <SelectItem value="m@support.com">
-                                  m@support.com
-                                </SelectItem>
-                              </SelectContent>
-                            </Select>
-
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
                       <FormField
                         control={form.control}
                         name="ship_postcode"
