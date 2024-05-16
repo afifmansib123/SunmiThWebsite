@@ -224,7 +224,7 @@ const Checkout = () => {
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
-                            {amphures && amphures.map((x)=>(<SelectItem value={x.name_th}>
+                            {amphures && amphures.map((x)=>(<SelectItem value={x.name_th} key={x.id}>
                               {x.name_th}/{x.name_en}
                             </SelectItem>))}
                           </SelectContent>
@@ -250,7 +250,7 @@ const Checkout = () => {
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
-                            {provinces && provinces.map((x)=>(<SelectItem value={x.name_th}>
+                            {provinces && provinces.map((x)=>(<SelectItem value={x.name_th} key={x.id}>
                               {x.name_th}/{x.name_en}
                             </SelectItem>))}
                           </SelectContent>
@@ -406,7 +406,7 @@ const Checkout = () => {
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
-                            {amphures && amphures.map((x)=>(<SelectItem value={x.name_th}>
+                            {amphures && amphures.map((x)=>(<SelectItem value={x.name_th} key={x.id}>
                               {x.name_th}/{x.name_en}
                             </SelectItem>))}
                           </SelectContent>
@@ -432,7 +432,7 @@ const Checkout = () => {
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
-                            {provinces && provinces.map((x)=>(<SelectItem value={x.name_th}>
+                            {provinces && provinces.map((x)=>(<SelectItem value={x.name_th} key={x.id}>
                               {x.name_th}/{x.name_en}
                             </SelectItem>))}
                           </SelectContent>
