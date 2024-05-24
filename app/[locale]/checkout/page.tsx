@@ -2,8 +2,8 @@
 
 import { Checkbox } from "@/components/ui/checkbox";
 import { RiErrorWarningFill } from "react-icons/ri";
-import {amphures} from "./amphures.js"
-import {provinces} from "./provinces.js"
+import { amphures } from "./amphures.js"
+import { provinces } from "./provinces.js"
 
 import {
   Form,
@@ -34,7 +34,7 @@ import CheckoutDetails from "./CheckoutDetails";
 const formSchema = z.object({
   //firstName: z.string().min(2).max(50).optional(),
   //lastName: z.string().min(2).max(50).optional(),
-  fullname : z.string().min(2).max(50).optional(),
+  fullname: z.string().min(2).max(50).optional(),
   streetAddress: z.string().min(2).max(50).optional(),
   amphures: z.string().min(2).max(50).optional(),
   province: z.string().min(2).max(50).optional(),
@@ -42,6 +42,8 @@ const formSchema = z.object({
   postcode: z.string().min(2).max(50).optional(),
   phone: z.string(),
   email: z.string().email(),
+  tax_adress: z.boolean().default(false).optional(),
+  tax_input: z.boolean().default(false).optional(),
   ship_address: z.boolean().default(false).optional(),
   ship_name: z.string().min(2).max(50).optional(),
   ship_streetAddress: z.string().min(2).max(50).optional(),
@@ -49,6 +51,12 @@ const formSchema = z.object({
   ship_province: z.string().min(2).max(50).optional(),
   ship_postcode: z.string().min(2).max(50).optional(),
   ship_company_name: z.string().min(2).max(50).optional(),
+  recipient_name : z.string().min(2).max(50).optional(),
+  recipient_telephone : z.string().min(2).max(50).optional(),
+  recipient_taxidnumber : z.string().min(2).max(50).optional(),
+  recipient_taxidnumbercompany : z.string().min(2).max(50).optional(),
+  recipient_branchname : z.string().min(2).max(50).optional(),
+  recipient_branchnumber : z.string().min(2).max(50).optional(),
   other_notes: z.string().min(2).max(50).optional(),
   company_name: z.string().min(2).max(50).optional(),
   totalPrice: z.number(),
@@ -92,7 +100,7 @@ const Checkout = () => {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     const formData = {
-      fullname : values.fullname,
+      fullname: values.fullname,
       streetAddress: values.streetAddress,
       amphures: values.amphures,
       province: values.province,
@@ -100,6 +108,8 @@ const Checkout = () => {
       postcode: values.postcode,
       phone: values.phone,
       email: values.email,
+      tax_adress: values.tax_adress,
+      tax_input: values.tax_input,
       ship_address: values.ship_address,
       ship_name: values.ship_name,
       ship_streetAddress: values.ship_streetAddress,
@@ -109,6 +119,12 @@ const Checkout = () => {
       ship_company_name: values.ship_company_name,
       other_notes: values.other_notes,
       company_name: values.company_name,
+      recipient_name : values.recipient_name,
+      recipient_telephone : values.recipient_telephone,
+      recipient_taxidnumber : values.recipient_taxidnumber,
+      recipient_taxidnumbercompany : values.recipient_taxidnumbercompany,
+      recipient_branchname : values.recipient_branchname,
+      recipient_branchnumber : values.recipient_branchnumber,
       totalPrice: total, // Assuming `total` is available in scope
       products: cart, // Assuming `cart` is available in scope
     };
@@ -116,6 +132,11 @@ const Checkout = () => {
     // Now you can send `formData` as JSON in your API request
     console.log(JSON.stringify(formData));
   }
+
+  const [personaltax, setpersonaltax] = useState(false)
+
+  const [taxtype , settaxtype] = useState("")
+
   return (
     <div>
       <MainHeader path={"/checkout"} />
@@ -177,21 +198,21 @@ const Checkout = () => {
                   <p className="text-base font-bold pb-2 border-b border-slate-950">
                     Billing details
                   </p>
-                  
-                    <FormField
-                      control={form.control}
-                      name="fullname"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Full Name</FormLabel>
-                          <FormControl>
-                            <Input placeholder="Full Name" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  
+
+                  <FormField
+                    control={form.control}
+                    name="fullname"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Full Name</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Full Name" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
                   <FormField
                     control={form.control}
                     name="company_name"
@@ -206,7 +227,7 @@ const Checkout = () => {
                     )}
                   />
                   <div>
-                  <p className=" text-sm font-bold">Thailand Adress</p>
+                    <p className=" text-sm font-bold">Thailand Adress</p>
                   </div>
                   <FormField
                     control={form.control}
@@ -224,7 +245,7 @@ const Checkout = () => {
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
-                            {amphures && amphures.map((x)=>(<SelectItem value={x.name_th} key={x.id}>
+                            {amphures && amphures.map((x) => (<SelectItem value={x.name_th} key={x.id}>
                               {x.name_th}/{x.name_en}
                             </SelectItem>))}
                           </SelectContent>
@@ -234,7 +255,7 @@ const Checkout = () => {
                       </FormItem>
                     )}
                   />
-                                    <FormField
+                  <FormField
                     control={form.control}
                     name="province"
                     render={({ field }) => (
@@ -250,7 +271,7 @@ const Checkout = () => {
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
-                            {provinces && provinces.map((x)=>(<SelectItem value={x.name_th} key={x.id}>
+                            {provinces && provinces.map((x) => (<SelectItem value={x.name_th} key={x.id}>
                               {x.name_th}/{x.name_en}
                             </SelectItem>))}
                           </SelectContent>
@@ -260,38 +281,38 @@ const Checkout = () => {
                       </FormItem>
                     )}
                   />
-                                      <FormField
-                      control={form.control}
-                      name="streetAddress"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>
-                          
-                          </FormLabel>
-                          <FormControl>
-                            <Input
-                              placeholder="House number and street name"
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="streetAddress"
-                      render={({ field }) => (
-                        <FormItem className=" mt-4">
-                          <FormControl>
-                            <Input
-                              placeholder="Apartment, suite, unit, etc. (optional)"
-                              {...field}
-                            />
-                          </FormControl>
-                        </FormItem>
-                      )}
-                    />
+                  <FormField
+                    control={form.control}
+                    name="streetAddress"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>
+
+                        </FormLabel>
+                        <FormControl>
+                          <Input
+                            placeholder="House number and street name"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="streetAddress"
+                    render={({ field }) => (
+                      <FormItem className=" mt-4">
+                        <FormControl>
+                          <Input
+                            placeholder="Apartment, suite, unit, etc. (optional)"
+                            {...field}
+                          />
+                        </FormControl>
+                      </FormItem>
+                    )}
+                  />
                   <FormField
                     control={form.control}
                     name="postcode"
@@ -340,6 +361,187 @@ const Checkout = () => {
                   />
                   <FormField
                     control={form.control}
+                    name="tax_adress"
+                    render={({ field }) => (
+                      <FormItem className="flex flex-row items-start space-x-3 space-y-0  ">
+                        <FormControl>
+                          <Checkbox
+                            checked={field.value}
+                            onCheckedChange={field.onChange}
+                          />
+                        </FormControl>
+                        <div className="flex justify-center leading-none">
+                          <FormLabel className="flex font-bold">
+                            Request Tax Invoice
+                          </FormLabel>
+                        </div>
+                      </FormItem>
+                    )}
+                  />
+                  {form.watch("tax_adress") && (
+                    <>
+                      <FormField
+                        control={form.control}
+                        name="tax_input"
+                        render={({ field }) => (
+                          <FormItem className="flex justify-center ">
+                            <FormControl>
+                              {!personaltax && (
+                                <button type="button" className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                                  onClick={() => { setpersonaltax(true) }}
+                                >
+                                  Add New Adress</button>)}
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      {personaltax && (<>
+
+                        <div className="flex items-center mb-4">
+                          <input id="default-radio-1" type="radio" value="" name="default-radio" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onClick={()=>{settaxtype("personaltaxtype")}}/>
+                          <label className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Personal Tax</label>
+                        </div>
+                        <div className="flex items-center">
+                          <input id="default-radio-2" type="radio" value="" name="default-radio" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onClick={()=>{settaxtype("companytaxtype")}}/>
+                          <label className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Corporate Tax</label>
+                        </div>
+
+
+                        <form className="max-w-md mx-auto">
+                          {taxtype === "personaltaxtype" ? (
+                            <>
+
+                            <FormField
+                    control={form.control}
+                    name="recipient_taxidnumber"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Tax Id Number</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Tax Id Number" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                          
+                          <FormField
+                    control={form.control}
+                    name="recipient_name"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Recipients Name</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Add Company" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                          <FormField
+                    control={form.control}
+                    name="recipient_telephone"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Telephone</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Recipient Telephone" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                          </>
+                          ) : (<>
+                          <FormField
+                    control={form.control}
+                    name="recipient_taxidnumber"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Tax Id Number(Personal)</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Tax Id Number" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="recipient_taxidnumbercompany"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Tax identification number (Company)</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Tax Id Number (Company)" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="recipient_branchname"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Branch Name</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Branch Name" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="recipient_branchnumber"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Branch Number</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Branch Number" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                          <FormField
+                    control={form.control}
+                    name="recipient_name"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Recipient Name</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Recipient Name" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="recipient_telephone"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Telephone</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Recipient Telephone" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                          
+                          </>)}
+                        </form>
+
+                      </>)}
+                    </>)}
+                  <FormField
+                    control={form.control}
                     name="ship_address"
                     render={({ field }) => (
                       <FormItem className="flex flex-row items-start space-x-3 space-y-0  ">
@@ -360,19 +562,19 @@ const Checkout = () => {
                   {/* show   Ship to a different address? */}
                   {form.watch("ship_address") && (
                     <>
-                        <FormField
-                          control={form.control}
-                          name="ship_name"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel>Full Name</FormLabel>
-                              <FormControl>
-                                <Input placeholder="Full Name" {...field} />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
+                      <FormField
+                        control={form.control}
+                        name="ship_name"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Full Name</FormLabel>
+                            <FormControl>
+                              <Input placeholder="Full Name" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
                       <FormField
                         control={form.control}
                         name="ship_company_name"
@@ -387,91 +589,91 @@ const Checkout = () => {
                         )}
                       />
                       <div>
-                      <p className=" text-sm font-bold">Thailand Adress</p>
-                       
+                        <p className=" text-sm font-bold">Thailand Adress</p>
+
                       </div>
                       <FormField
-                    control={form.control}
-                    name="ship_amphures"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Amphures</FormLabel>
-                        <Select
-                          onValueChange={field.onChange}
-                          defaultValue={field.value}
-                        >
-                          <FormControl>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Select an Amphure" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent>
-                            {amphures && amphures.map((x)=>(<SelectItem value={x.name_th} key={x.id}>
-                              {x.name_th}/{x.name_en}
-                            </SelectItem>))}
-                          </SelectContent>
-                        </Select>
-
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                                    <FormField
-                    control={form.control}
-                    name="ship_province"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Province</FormLabel>
-                        <Select
-                          onValueChange={field.onChange}
-                          defaultValue={field.value}
-                        >
-                          <FormControl>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Select a Province" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent>
-                            {provinces && provinces.map((x)=>(<SelectItem value={x.name_th} key={x.id}>
-                              {x.name_th}/{x.name_en}
-                            </SelectItem>))}
-                          </SelectContent>
-                        </Select>
-
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                   <FormField
-                          control={form.control}
-                          name="ship_streetAddress"
-                          render={({ field }) => (
-                            <FormItem>
-                              
+                        control={form.control}
+                        name="ship_amphures"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Amphures</FormLabel>
+                            <Select
+                              onValueChange={field.onChange}
+                              defaultValue={field.value}
+                            >
                               <FormControl>
-                                <Input
-                                  placeholder="House number and street name"
-                                  {...field}
-                                />
+                                <SelectTrigger>
+                                  <SelectValue placeholder="Select an Amphure" />
+                                </SelectTrigger>
                               </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                        <FormField
-                          control={form.control}
-                          name="ship_streetAddress"
-                          render={({ field }) => (
-                            <FormItem className=" mt-4">
+                              <SelectContent>
+                                {amphures && amphures.map((x) => (<SelectItem value={x.name_th} key={x.id}>
+                                  {x.name_th}/{x.name_en}
+                                </SelectItem>))}
+                              </SelectContent>
+                            </Select>
+
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="ship_province"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Province</FormLabel>
+                            <Select
+                              onValueChange={field.onChange}
+                              defaultValue={field.value}
+                            >
                               <FormControl>
-                                <Input
-                                  placeholder="Apartment, suite, unit, etc. (optional)"
-                                  {...field}
-                                />
+                                <SelectTrigger>
+                                  <SelectValue placeholder="Select a Province" />
+                                </SelectTrigger>
                               </FormControl>
-                            </FormItem>
-                          )}
-                        />
+                              <SelectContent>
+                                {provinces && provinces.map((x) => (<SelectItem value={x.name_th} key={x.id}>
+                                  {x.name_th}/{x.name_en}
+                                </SelectItem>))}
+                              </SelectContent>
+                            </Select>
+
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="ship_streetAddress"
+                        render={({ field }) => (
+                          <FormItem>
+
+                            <FormControl>
+                              <Input
+                                placeholder="House number and street name"
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="ship_streetAddress"
+                        render={({ field }) => (
+                          <FormItem className=" mt-4">
+                            <FormControl>
+                              <Input
+                                placeholder="Apartment, suite, unit, etc. (optional)"
+                                {...field}
+                              />
+                            </FormControl>
+                          </FormItem>
+                        )}
+                      />
                       <FormField
                         control={form.control}
                         name="ship_postcode"
