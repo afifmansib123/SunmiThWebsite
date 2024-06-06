@@ -34,26 +34,26 @@ import CheckoutDetails from "./CheckoutDetails";
 const formSchema = z.object({
   //firstName: z.string().min(2).max(50).optional(),
   //lastName: z.string().min(2).max(50).optional(),
-  fullname: z.string().min(2).max(50).optional(),
-  streetAddress: z.string().min(2).max(50).optional(),
+  name: z.string().min(2).max(50).optional(),
+  shippingAddress: z.string().min(2).max(50).optional(),
   amphures: z.string().min(2).max(50).optional(),
   province: z.string().min(2).max(50).optional(),
   tambons: z.string().min(2).max(50).optional(),
   postcode: z.string().min(2).max(50).optional(),
   phone: z.string(),
   email: z.string().email(),
-  tax_adress: z.boolean().default(false).optional(),
+  isCompany: z.boolean().default(false).optional(),
   tax_input: z.boolean().default(false).optional(),
   ship_address: z.boolean().default(false).optional(),
   ship_name: z.string().min(2).max(50).optional(),
-  ship_streetAddress: z.string().min(2).max(50).optional(),
+  address: z.string().min(2).max(50).optional(),
   ship_amphures: z.string().min(2).max(50).optional(),
   ship_province: z.string().min(2).max(50).optional(),
   ship_postcode: z.string().min(2).max(50).optional(),
   ship_company_name: z.string().min(2).max(50).optional(),
   recipient_name : z.string().min(2).max(50).optional(),
   recipient_telephone : z.string().min(2).max(50).optional(),
-  recipient_taxidnumber : z.string().min(2).max(50).optional(),
+  companyTaxID : z.string().min(2).max(50).optional(),
   recipient_taxidnumbercompany : z.string().min(2).max(50).optional(),
   recipient_branchname : z.string().min(2).max(50).optional(),
   recipient_branchnumber : z.string().min(2).max(50).optional(),
@@ -74,8 +74,6 @@ const Checkout = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      phone: "",
-      email: "",
     },
   });
 
@@ -100,19 +98,19 @@ const Checkout = () => {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     const formData = {
-      fullname: values.fullname,
-      streetAddress: values.streetAddress,
+      name: values.name,
+      shippingAddress: values.shippingAddress,
       amphures: values.amphures,
       province: values.province,
       tambons: values.tambons,
       postcode: values.postcode,
       phone: values.phone,
       email: values.email,
-      tax_adress: values.tax_adress,
+      isCompany: values.isCompany,
       tax_input: values.tax_input,
       ship_address: values.ship_address,
       ship_name: values.ship_name,
-      ship_streetAddress: values.ship_streetAddress,
+      address: values.address,
       ship_amphures: values.ship_amphures,
       ship_province: values.ship_province,
       ship_postcode: values.ship_postcode,
@@ -121,7 +119,7 @@ const Checkout = () => {
       company_name: values.company_name,
       recipient_name : values.recipient_name,
       recipient_telephone : values.recipient_telephone,
-      recipient_taxidnumber : values.recipient_taxidnumber,
+      companyTaxID : values.companyTaxID,
       recipient_taxidnumbercompany : values.recipient_taxidnumbercompany,
       recipient_branchname : values.recipient_branchname,
       recipient_branchnumber : values.recipient_branchnumber,
@@ -201,7 +199,7 @@ const Checkout = () => {
 
                   <FormField
                     control={form.control}
-                    name="fullname"
+                    name="name"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Full Name</FormLabel>
@@ -216,11 +214,11 @@ const Checkout = () => {
                   <FormField
                     control={form.control}
                     name="company_name"
-                    render={({ field }) => (
+                    render={({ }) => (
                       <FormItem>
                         <FormLabel>Company name (optional)</FormLabel>
                         <FormControl>
-                          <Input placeholder="Add Company" {...field} />
+                          <Input placeholder="Add Company" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -236,7 +234,7 @@ const Checkout = () => {
                       <FormItem>
                         <FormLabel>Amphures</FormLabel>
                         <Select
-                          onValueChange={field.onChange}
+                          onValueChange={()=>{}}
                           defaultValue={field.value}
                         >
                           <FormControl>
@@ -262,7 +260,7 @@ const Checkout = () => {
                       <FormItem>
                         <FormLabel>Province</FormLabel>
                         <Select
-                          onValueChange={field.onChange}
+                          onValueChange={()=>{}}
                           defaultValue={field.value}
                         >
                           <FormControl>
@@ -283,7 +281,7 @@ const Checkout = () => {
                   />
                   <FormField
                     control={form.control}
-                    name="streetAddress"
+                    name="address"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>
@@ -301,7 +299,7 @@ const Checkout = () => {
                   />
                   <FormField
                     control={form.control}
-                    name="streetAddress"
+                    name="shippingAddress"
                     render={({ field }) => (
                       <FormItem className=" mt-4">
                         <FormControl>
@@ -316,13 +314,14 @@ const Checkout = () => {
                   <FormField
                     control={form.control}
                     name="postcode"
-                    render={({ field }) => (
+                    render={({ }) => (
                       <FormItem>
                         <FormLabel>Postcode / ZIP (optional)</FormLabel>
                         <FormControl>
                           <Input
                             placeholder="Postcode / ZIP (optional)"
-                            {...field}
+                            
+
                           />
                         </FormControl>
                         <FormMessage />
@@ -361,7 +360,7 @@ const Checkout = () => {
                   />
                   <FormField
                     control={form.control}
-                    name="tax_adress"
+                    name="isCompany"
                     render={({ field }) => (
                       <FormItem className="flex flex-row items-start space-x-3 space-y-0  ">
                         <FormControl>
@@ -378,12 +377,12 @@ const Checkout = () => {
                       </FormItem>
                     )}
                   />
-                  {form.watch("tax_adress") && (
+                  {form.watch("isCompany") && (
                     <>
                       <FormField
                         control={form.control}
                         name="tax_input"
-                        render={({ field }) => (
+                        render={({ }) => (
                           <FormItem className="flex justify-center ">
                             <FormControl>
                               {!personaltax && (
@@ -414,12 +413,12 @@ const Checkout = () => {
 
                             <FormField
                     control={form.control}
-                    name="recipient_taxidnumber"
-                    render={({ field }) => (
+                    name="companyTaxID"
+                    render={({  }) => (
                       <FormItem>
                         <FormLabel>Tax Id Number</FormLabel>
                         <FormControl>
-                          <Input placeholder="Tax Id Number" {...field} />
+                          <Input placeholder="Tax Id Number"  />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -429,11 +428,11 @@ const Checkout = () => {
                           <FormField
                     control={form.control}
                     name="recipient_name"
-                    render={({ field }) => (
+                    render={({ }) => (
                       <FormItem>
                         <FormLabel>Recipients Name</FormLabel>
                         <FormControl>
-                          <Input placeholder="Add Company" {...field} />
+                          <Input placeholder="Add Company"/>
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -442,11 +441,11 @@ const Checkout = () => {
                           <FormField
                     control={form.control}
                     name="recipient_telephone"
-                    render={({ field }) => (
+                    render={({ }) => (
                       <FormItem>
                         <FormLabel>Telephone</FormLabel>
                         <FormControl>
-                          <Input placeholder="Recipient Telephone" {...field} />
+                          <Input placeholder="Recipient Telephone"/>
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -456,12 +455,12 @@ const Checkout = () => {
                           ) : (<>
                           <FormField
                     control={form.control}
-                    name="recipient_taxidnumber"
-                    render={({ field }) => (
+                    name="companyTaxID"
+                    render={({  }) => (
                       <FormItem>
                         <FormLabel>Tax Id Number(Personal)</FormLabel>
                         <FormControl>
-                          <Input placeholder="Tax Id Number" {...field} />
+                          <Input placeholder="Tax Id Number"  />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -471,11 +470,11 @@ const Checkout = () => {
                   <FormField
                     control={form.control}
                     name="recipient_taxidnumbercompany"
-                    render={({ field }) => (
+                    render={({ }) => (
                       <FormItem>
                         <FormLabel>Tax identification number (Company)</FormLabel>
                         <FormControl>
-                          <Input placeholder="Tax Id Number (Company)" {...field} />
+                          <Input placeholder="Tax Id Number (Company)"/>
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -484,11 +483,11 @@ const Checkout = () => {
                   <FormField
                     control={form.control}
                     name="recipient_branchname"
-                    render={({ field }) => (
+                    render={({ }) => (
                       <FormItem>
                         <FormLabel>Branch Name</FormLabel>
                         <FormControl>
-                          <Input placeholder="Branch Name" {...field} />
+                          <Input placeholder="Branch Name" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -497,11 +496,11 @@ const Checkout = () => {
                   <FormField
                     control={form.control}
                     name="recipient_branchnumber"
-                    render={({ field }) => (
+                    render={({}) => (
                       <FormItem>
                         <FormLabel>Branch Number</FormLabel>
                         <FormControl>
-                          <Input placeholder="Branch Number" {...field} />
+                          <Input placeholder="Branch Number"/>
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -510,11 +509,11 @@ const Checkout = () => {
                           <FormField
                     control={form.control}
                     name="recipient_name"
-                    render={({ field }) => (
+                    render={({ }) => (
                       <FormItem>
                         <FormLabel>Recipient Name</FormLabel>
                         <FormControl>
-                          <Input placeholder="Recipient Name" {...field} />
+                          <Input placeholder="Recipient Name" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -524,11 +523,11 @@ const Checkout = () => {
                   <FormField
                     control={form.control}
                     name="recipient_telephone"
-                    render={({ field }) => (
+                    render={({ }) => (
                       <FormItem>
                         <FormLabel>Telephone</FormLabel>
                         <FormControl>
-                          <Input placeholder="Recipient Telephone" {...field} />
+                          <Input placeholder="Recipient Telephone" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -543,12 +542,12 @@ const Checkout = () => {
                   <FormField
                     control={form.control}
                     name="ship_address"
-                    render={({ field }) => (
+                    render={({field }) => (
                       <FormItem className="flex flex-row items-start space-x-3 space-y-0  ">
                         <FormControl>
                           <Checkbox
                             checked={field.value}
-                            onCheckedChange={field.onChange}
+                            onCheckedChange={()=>{}}
                           />
                         </FormControl>
                         <div className="space-y-1 leading-none">
@@ -565,11 +564,11 @@ const Checkout = () => {
                       <FormField
                         control={form.control}
                         name="ship_name"
-                        render={({ field }) => (
+                        render={({ }) => (
                           <FormItem>
                             <FormLabel>Full Name</FormLabel>
                             <FormControl>
-                              <Input placeholder="Full Name" {...field} />
+                              <Input placeholder="Full Name" />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -578,11 +577,11 @@ const Checkout = () => {
                       <FormField
                         control={form.control}
                         name="ship_company_name"
-                        render={({ field }) => (
+                        render={({}) => (
                           <FormItem>
                             <FormLabel>Company name (optional)</FormLabel>
                             <FormControl>
-                              <Input placeholder="" {...field} />
+                              <Input placeholder=""  />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -599,7 +598,7 @@ const Checkout = () => {
                           <FormItem>
                             <FormLabel>Amphures</FormLabel>
                             <Select
-                              onValueChange={field.onChange}
+                              onValueChange={()=>{}}
                               defaultValue={field.value}
                             >
                               <FormControl>
@@ -625,7 +624,7 @@ const Checkout = () => {
                           <FormItem>
                             <FormLabel>Province</FormLabel>
                             <Select
-                              onValueChange={field.onChange}
+                              onValueChange={()=>{}}
                               defaultValue={field.value}
                             >
                               <FormControl>
@@ -646,7 +645,7 @@ const Checkout = () => {
                       />
                       <FormField
                         control={form.control}
-                        name="ship_streetAddress"
+                        name="address"
                         render={({ field }) => (
                           <FormItem>
 
@@ -662,13 +661,13 @@ const Checkout = () => {
                       />
                       <FormField
                         control={form.control}
-                        name="ship_streetAddress"
-                        render={({ field }) => (
+                        name="address"
+                        render={({ }) => (
                           <FormItem className=" mt-4">
                             <FormControl>
                               <Input
                                 placeholder="Apartment, suite, unit, etc. (optional)"
-                                {...field}
+                                
                               />
                             </FormControl>
                           </FormItem>
@@ -677,13 +676,13 @@ const Checkout = () => {
                       <FormField
                         control={form.control}
                         name="ship_postcode"
-                        render={({ field }) => (
+                        render={({ }) => (
                           <FormItem>
                             <FormLabel>Postcode / ZIP (optional)</FormLabel>
                             <FormControl>
                               <Input
                                 placeholder="Postcode / ZIP (optional)"
-                                {...field}
+                                
                               />
                             </FormControl>
                             <FormMessage />
@@ -695,13 +694,13 @@ const Checkout = () => {
                   <FormField
                     control={form.control}
                     name="other_notes"
-                    render={({ field }) => (
+                    render={({  }) => (
                       <FormItem>
                         <FormLabel>Order notes (optional)</FormLabel>
                         <FormControl>
                           <Textarea
                             placeholder="Notes about your order, e.g. special notes for delivery."
-                            {...field}
+                            
                           />
                         </FormControl>
                         <FormMessage />

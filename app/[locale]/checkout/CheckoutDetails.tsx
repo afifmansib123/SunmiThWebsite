@@ -51,10 +51,10 @@ const CheckoutDetails: FC<CheckoutDetailsProps> = ({
         'Content-Type': 'application/json'
       };
       const body = JSON.stringify({
-        invoiceNo: 'INV123',
+        //invoiceNo: 'INV123',
         description: 'Payment for goods',
         amount: subtotal + shippingCost,
-        formData: formData,
+        customerData: formData,
       });
 
       const response = await fetch(url, {
