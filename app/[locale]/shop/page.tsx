@@ -16,6 +16,9 @@ export interface Iproduct {
   currentSlug: string;
   subTitle: string;
 }
+
+export const revalidate = 30; // revalidate at most 30 seconds
+
 const Shop = async () => {
   const shopData = await getAllShop();
 
@@ -68,8 +71,7 @@ const Shop = async () => {
                     ฿{product.price}
                   </h3>
                 </Link>
-                {product.currentSlug === "d3-mini" ||
-                product.currentSlug === "v3-mix" ? (
+                {product.currentSlug === "v3-mix" ? (
                   <p className="text-red-500 font-bold mt-7">Out of Stock</p>
                 ) : (
                   <CartButton

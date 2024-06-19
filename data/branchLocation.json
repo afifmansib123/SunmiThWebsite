@@ -6,28 +6,32 @@
       "address_thai": "10/5 ถนน กาญจนาภิเษก แขวงประเวศ เขต ประเวศ กรุงเทพ 10250",
       "phone": "063 986 4820",
       "mail": "contact@sunmith.com ",
-      "office_image": "/images/brances/1.jpg"
+      "office_image": "/images/brances/1.jpg",
+      "maps_link": "https://maps.app.goo.gl/2iFzHHFftqU5mPN58"
     },
     {
       "name": "Sunmi TH Bangkok",
       "address": "42/32 Primary House Bangkaew BangPhi Bangkok 10540",
       "address_thai": "42/32 โครงการ primary house ตำบล บางแก้ว อำเภอ บางพลี สมุทรปราการ 10540",
       "phone": "02 114 7173",
-      "office_image": "/images/brances/2.jpeg"
+      "office_image": "/images/brances/2.jpeg",
+      "maps_link": "https://maps.app.goo.gl/AGrT5ph83qg8rexy8"
     },
     {
       "name": "Sunmi TH Phuket",
       "address": "29/33 Wichit, Mueang Phuket District, Phuket 83000",
       "address_thai": "29/33 ถนน วิชิต ตำบล วิชิต อำเภอ เมืองภูเก็ต ภูเก็ต 83000",
       "phone": "076 634 646",
-      "office_image": "/images/brances/3.jpeg"
+      "office_image": "/images/brances/3.jpeg",
+      "maps_link": "https://maps.app.goo.gl/NPnqY2iM5p5ADLHD9"
     },
     {
       "name": "Sunmi TH Chiangmai",
       "address": "No, 3 Nimmana Haeminda Rd Lane 5, Mueang Chiang Mai District, Chiang Mai 50200",
       "address_thai": "3 ถนน นิมานเหมิน ซอย 5 ตำบล เมือง อำเภอ เมือง เชียงใหม่ 50200",
       "phone": "052 063 168",
-      "office_image": "/images/brances/4.jpeg"
+      "office_image": "/images/brances/4.jpeg",
+      "maps_link": "https://maps.app.goo.gl/52LLewXHUM1ZMREY6"
     },
     {
       "name": "Sunmi TH Pattaya",
@@ -35,28 +39,32 @@
       "address_thai": "6/27 ถนน พัทยาเหนือ ตำบล นาเกลือ อำเภอ บางละมุง ชลบุรี 20150",
       "phone": "033 033 168",
       "mail": "pattaya@sunmith.com",
-      "office_image": "/images/brances/5.jpeg"
+      "office_image": "/images/brances/5.jpeg",
+      "maps_link": "https://maps.app.goo.gl/k6VmEoPkeuUbsZAu6"
     },
     {
       "name": "Sunmi TH Khonkaen",
       "address": "561, 30 Na Mueang Rd, Nai Mueang, Khon Kaen 40000",
       "address_thai": "561/30 ถนน นาเมือง ตำบล ในเมือง อำเภอเมือง ขอนแก่น 40000",
       "phone": "043-002-236",
-      "office_image": "/images/brances/6.jpeg"
+      "office_image": "/images/brances/6.jpeg",
+      "maps_link": "https://maps.app.goo.gl/bF2DxG2hfZHCzkow6"
     },
     {
       "name": "Sunmi TH Korat",
       "address": "517 3 Thanon Mittraphap, Ban Ko, Mueang Nakhon Ratchasima District, Nakhon Ratchasima 30000",
       "address_thai": "517 3 ถ.มิตรภาพ บ้านเกาะ อำเภอเมืองนครราชสีมา นครราชสีมา 30000",
       "phone": "044-080-168",
-      "office_image": "/images/brances/7.jpeg"
+      "office_image": "/images/brances/7.jpeg",
+      "maps_link": "https://maps.app.goo.gl/tTbcyPQUh9UpTcZAA"
     },
     {
       "name": "SUNMI TH HATYAI",
       "address": "226 Sripoovanart Rd, Tambon Hat Yai, Hat Yai District, Songkhla 90110",
       "address_thai": "226 ถ.ศรีภูวนารถ ตำบลหาดใหญ่ อำเภอหาดใหญ่ สงขลา 90110",
       "phone": "074-235-265",
-      "office_image": "/images/brances/8.jpg"
+      "office_image": "/images/brances/8.jpg",
+      "maps_link": "https://maps.app.goo.gl/rKXvxyYviF7JrRFNA"
     }
   ]
 }
