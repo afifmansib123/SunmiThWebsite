@@ -6,7 +6,7 @@
       "address_thai": "10/5 ถนน กาญจนาภิเษก แขวงประเวศ เขต ประเวศ กรุงเทพ 10250",
       "phone": "063 986 4820",
       "mail": "contact@sunmith.com ",
-      "office_image": "/images/brances/1.jpeg"
+      "office_image": "/images/brances/1.jpg"
     },
     {
       "name": "Sunmi TH Bangkok",
@@ -48,8 +48,15 @@
       "name": "Sunmi TH Korat",
       "address": "517 3 Thanon Mittraphap, Ban Ko, Mueang Nakhon Ratchasima District, Nakhon Ratchasima 30000",
       "address_thai": "517 3 ถ.มิตรภาพ บ้านเกาะ อำเภอเมืองนครราชสีมา นครราชสีมา 30000",
-      "phone": "1234567891",
+      "phone": "044-080-168",
       "office_image": "/images/brances/7.jpeg"
+    },
+    {
+      "name": "SUNMI TH HATYAI",
+      "address": "226 Sripoovanart Rd, Tambon Hat Yai, Hat Yai District, Songkhla 90110",
+      "address_thai": "226 ถ.ศรีภูวนารถ ตำบลหาดใหญ่ อำเภอหาดใหญ่ สงขลา 90110",
+      "phone": "074-235-265",
+      "office_image": "/images/brances/8.jpg"
     }
   ]
 }

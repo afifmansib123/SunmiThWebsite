@@ -21,7 +21,8 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-toast": "^1.1.5",
     "@sanity/block-content-to-react": "^3.0.0",
-    "@sanity/image-url": "1",
+    "@sanity/client": "^6.20.0",
+    "@sanity/image-url": "^1.0.2",
     "@sanity/locale-de-de": "^1.1.0",
     "@sanity/locale-th-th": "^1.1.0",
     "@sanity/vision": "3",
@@ -36,6 +37,7 @@
     "http-proxy-middleware": "^2.0.6",
     "lucide-react": "^0.325.0",
     "mongoose": "^8.2.3",
+    "negotiator": "^0.6.3",
     "next": "^14.2.1",
     "next-intl": "^3.7.0",
     "next-sanity": "7",
@@ -62,6 +64,7 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@types/negotiator": "^0.6.3",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
