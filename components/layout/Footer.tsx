@@ -20,18 +20,23 @@ const Footer = () => {
             </Link>
           </div>
           <div className=" pt-6">
-            <h4 className=" text-base font-sans font-bold text-skin-neutral-600">
-              SUNMI TH SERVICE CENTER
+            <h4 className=" text-base font-sans font-bold text-skin-neutral-600 mb-3">
+              SUNMI TH CO., LTD. (บริษัท ซันมิ ทีเอช จำกัด)
             </h4>
             <ul className="">
               <li>
                 <p className="text-base font-sans font-normal text-skin-neutral-600">
-                  10/5 Kanchanaphisek Rd, Khwaeng Prawet, Prawet, Bangkok 10250
+                459 Debaratna Rd, Bang Na Nuea, Bang Na, Bangkok 10260
                 </p>
               </li>
               <li>
                 <p className="text-base font-sans font-normal text-skin-neutral-600">
-                  สำนักงาน : 02-5217155-59 ต่อ 804 หรือ 808
+                  ติดต่อฝ่ายขาย : 02-114-7173 ต่อ 1
+                </p>
+              </li>
+              <li>
+                <p className="text-base font-sans font-normal text-skin-neutral-600">
+                  สำนักงานใหญ่ : 02-114-7173 ต่อ 4
                 </p>
               </li>
               <li>
@@ -125,7 +130,7 @@ const Footer = () => {
                   className="hover:underline transition-colors duration-500 hover:text-primary text-base xl:text-lg font-medium font-sans text-skin-neutral-600"
                   href={"https://lin.ee/zH1PVJL"}
                 >
-                  Contact Support 
+                  Contact Support
                 </Link>
               </li>
               <li>
