@@ -7,10 +7,6 @@ const imageBuilder = createImageUrlBuilder({
   dataset: "production" || "",
 });
 
-export const urlForImage = (source: any) => {
-  if (!source || !source.asset || typeof source.asset._ref !== 'string') {
-    console.error("Invalid image source", source);
-    return '';
-  }
-  return imageBuilder.image(source).auto('format').fit('max').url();
+export const urlForImage = (source: Image) => {
+  return imageBuilder?.image(source).auto("format").fit("max").url();
 };
