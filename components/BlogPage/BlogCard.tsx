@@ -22,7 +22,7 @@ const BlogCard: FC<IBlogCardType> = ({
             alt={title}
             width={478}
             height={320}
-            className="relative overflow-hidden w-auto h-auto group transform transition duration-500 hover:scale-105 rounded-lg"
+            className="relative overflow-hidden w-full h-full group transform transition duration-500 hover:scale-105 rounded-lg"
             quality={80}
           />
         </div>
