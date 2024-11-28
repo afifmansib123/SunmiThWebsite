@@ -1,6 +1,8 @@
 import ProductDetails from "@/components/pdf-viewer";
 import getSingleProduct from "@/services/getSingleProduct";
 
+export const revalidate = 30; // revalidate at most 30 seconds
+
 const PDFDJ = async ({ params }: { params: { slug: string } }) => {
   const item = await getSingleProduct(params.slug);
   return (
