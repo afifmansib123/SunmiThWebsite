@@ -33,6 +33,9 @@ export interface Iproduct {
   currentSlug: string;
   subTitle: string;
 }
+
+export const revalidate = 30; // revalidate at most 30 seconds
+
 const ProductsPage = async () => {
   const products: IProdcuts[] = await getAllProducts();
   return (

@@ -2,7 +2,7 @@ import V3Page from "@/components/pages/products/V3Page";
 import ProductDetails from "@/components/pdf-viewer";
 import getSingleProduct from "@/services/getSingleProduct";
 
-// export const revalidate = 30; // revalidate at most 30 seconds
+export const revalidate = 30; // revalidate at most 30 seconds
 
 const PDFDJ = async ({ params }: { params: { slug: string } }) => {
   console.log("params", params.slug);
