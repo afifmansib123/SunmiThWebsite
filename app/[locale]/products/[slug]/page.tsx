@@ -16,6 +16,7 @@ function rederProduct<T extends { pdfUrl: string }>(slug: string, item: T) {
   switch (slug) {
     case "v3-standard":
     case "v3-scanner":
+    case "v3":
       return <V3Page />;
     default:
       return <ProductDetails pdf={item?.pdfUrl || "/404.pdf"} />;
