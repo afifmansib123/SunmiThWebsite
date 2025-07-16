@@ -13,7 +13,7 @@ export function getContactFormSchema() {
     }),
     phone: z
       .string({ required_error: "Required" })
-      .min(9, { message: "Phone must contain 9 digits" })
+      .min(9, { message: "Phone must contain at least 9 digits" })
       .max(15, {
         message: "Phone must not exceed 15 digits",
       })

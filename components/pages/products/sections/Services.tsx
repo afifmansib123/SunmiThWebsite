@@ -19,11 +19,11 @@ export default function Services() {
   const serviceV3 = getLocalizedData(locale, json);
 
   return (
-    <section className="container w-full">
+    <section className="container w-full pb-6">
       <main className="w-full h-full">
         {/* text */}
         <div className="pt-14">
-          <p className="text-[22px] pl-2">ทำไมซื้อ SUNMI V3 ที่เราถึงดีที่สุด?</p>
+          <p className="text-[22px] pl-2 font-medium">ทำไมซื้อ SUNMI V3 ที่เราถึงดีที่สุด?</p>
         </div>
 
         {/* list */}
@@ -34,7 +34,7 @@ export default function Services() {
                 <CarouselItem key={index} className="sm:basis-1/1 md:basis-1/2 lg:basis-1/3">
                   <div className="p-1 h-[300px]"> 
                     <Card className="min-h-[210px] shadow-lg">
-                      <CardContent className="flex flex-col aspect-square h-[250px] sm:h-[300px] md:h-[250px] items-center justify-center p-4 gap-2  w-full sm:items-center sm:gap-4 sm:p-12">
+                      <CardContent className="flex flex-col aspect-square h-[250px] sm:h-[290px] md:h-[250px] items-center justify-center p-4 gap-2  w-full sm:items-center sm:gap-4 sm:p-12">
                          <Image src={icon.src} alt={icon.alt}
                          width={65}
                          height={65}

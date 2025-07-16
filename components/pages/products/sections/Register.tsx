@@ -87,9 +87,9 @@ export default function Register() {
     },
   });
   return (
-    <section className="container w-full">
-      <main className="w-full h-full">
-        <div className=" w-full h-full flex rounded-2xl overflow-hidden shadow-xl sm:h-[530px] md:h-[650px]">
+    <section className="container w-full py-10 mb-4">
+      <main className="w-full h-auto">
+        <div className=" w-full flex rounded-2xl overflow-hidden shadow-xl h-auto">
           {/* frame picture */}
           <div className="w-auto sm:w-1/2 min-w-[300px] relative hidden sm:flex ">
             <Image
@@ -124,7 +124,7 @@ export default function Register() {
                         <input
                           {...field}
                           placeholder="ชื่อ-นามสกุล"
-                          className="min-h-[60px] shadow-none rounded-xl h-auto w-full px-3 bg-[#F5F5F5]"
+                          className="min-h-[60px] shadow-none rounded-xl h-auto w-full px-3 bg-[#F5F5F5] placeholder:text-[#78716C]"
                         />
                       </FormControl>
                       <FormMessage />
@@ -140,7 +140,7 @@ export default function Register() {
                         <input
                           {...field}
                           placeholder="เบอร์โทรศัพท์"
-                          className="min-h-[60px] shadow-none rounded-xl h-auto w-full px-3 bg-[#F5F5F5]"
+                          className="min-h-[60px] shadow-none rounded-xl h-auto w-full px-3 bg-[#F5F5F5] placeholder:text-[#78716C]"
                         />
                       </FormControl>
                       <FormMessage></FormMessage>
@@ -185,7 +185,9 @@ export default function Register() {
                         defaultValue={field.value}
                       >
                         <FormControl>
-                          <SelectTrigger className="min-h-[60px] text-base  shadow-none rounded-xl h-auto w-full px-3 bg-[#F5F5F5]">
+                          <SelectTrigger className={`min-h-[60px] text-base shadow-none 
+                          rounded-xl h-auto w-full px-3 bg-[#F5F5F5] 
+                          ${field.value ? "text-inherit" : "text-[#78716C]"}`}>
                             <SelectValue
                               placeholder={"ช่องทางที่ได้รับฟอร์มนี้"}
                             />
