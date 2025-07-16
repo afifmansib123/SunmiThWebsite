@@ -27,3 +27,24 @@ export interface SingleProduct {
   price: number;
   currentSlug: string;
 }
+
+export interface IProduct {
+  _id: string;
+  name: string;
+  description: string;
+  sellingPrice: string;
+  images: string[];
+  isDeleted: boolean;
+  deletedAt: string | null;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+}
+
+export interface IAPIResponse<T> {
+  errorCode: string;
+  httpsStatus: number;
+  successful: boolean;
+  message: string;
+  data: T;
+}
